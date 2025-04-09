@@ -1,0 +1,12 @@
+<div mat-dialog-content>
+  <p>Create new group</p>
+  <mat-form-field>
+    <mat-label>Name</mat-label>
+    <input matInput #name [(ngModel)]="data.name" required maxlength="20">
+    <mat-hint>{{name.value.length}} / 20</mat-hint>
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Cancel</button>
+  <button mat-button [mat-dialog-close]="data.name" cdkFocusInitial>Ok</button>
+</div>

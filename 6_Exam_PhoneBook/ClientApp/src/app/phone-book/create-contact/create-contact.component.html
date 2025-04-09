@@ -1,0 +1,65 @@
+<div class="container">
+  <form [formGroup]="myForm" (ngSubmit)="onSubmit()" novalidate>
+    <div class="myMenu">
+      <button class="myBtn" type="button" (click)="goBack()">
+        <mat-icon>arrow_back</mat-icon>Back
+      </button>
+      <button type="submit" class="myBtn">
+        <mat-icon>how_to_reg</mat-icon>
+        Save
+      </button>
+    </div>
+    <div *ngIf="person.conId > 0; else newContact">
+      <h1>Edit contact</h1>
+    </div>
+    <ng-template #newContact>
+      <h1>Create contact</h1>
+    </ng-template>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Name</mat-label>
+      <input matInput [(ngModel)]="person.name" formControlName="name">
+      <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+      <mat-error *ngIf="errorHandling('name', 'required') || errorHandling('name', 'pattern')">
+        Name required field
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Group</mat-label>
+      <mat-select formControlName="groups">
+        <mat-option>--</mat-option>
+        <mat-option *ngFor="let group of groups" [value]="group">
+          {{group.name}}
+        </mat-option>
+      </mat-select>
+      <mat-error *ngIf="errorHandling('groups', 'required') || errorHandling('groups', 'pattern')">
+        Please choose an group
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Email</mat-label>
+      <input matInput type="email" [(ngModel)]="person.email" formControlName="email">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Address</mat-label>
+      <input matInput [(ngModel)]="person.address" formControlName="address">
+    </mat-form-field>
+
+    <div *ngFor="let number of person.numbers; let i = index">
+      <mat-form-field appearance="outline">
+        <mat-label>Number {{i+1}}</mat-label>
+        <input matInput [(ngModel)]="number.number1" formControlName="numbers{{i+1}}" maxlength="16">
+        <mat-hint>{{number.number1.length}} / 16</mat-hint>
+        <button *ngIf="number.number1" matSuffix mat-icon-button aria-label="Clear" (click)="number.number1=''">
+          <mat-icon>close</mat-icon>
+        </button>
+      </mat-form-field>
+    </div>
+    <button class="myBtn" [hidden]="!showAddNumber" type="button" (click)="AddNumber()">
+      <mat-icon>add_circle</mat-icon>&nbsp;&nbsp;Add number
+    </button>
+  </form>
+</div>

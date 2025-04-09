@@ -1,0 +1,45 @@
+<div class="container">
+  <div [hidden]="!showLoading" class="myLoading">
+    <mat-spinner color="warn"></mat-spinner>
+  </div>
+  <div class="myMenu">
+    <button class="myBtn" (click)="CreateGroup()">
+      Create&nbsp;&nbsp;&nbsp;
+      <mat-icon>add_circle</mat-icon>
+    </button>
+    <button class="myBtn" (click)="DeleteGroup()">
+      Delete&nbsp;&nbsp;&nbsp;
+      <mat-icon>remove_circle</mat-icon>
+    </button>
+  </div>
+
+  <table mat-table [dataSource]="groups" class="mat-elevation-z8">
+    <colgroup>
+      <col width="4%" />
+      <col width="80%" />
+      <col width="16%" />
+    </colgroup>
+    <ng-container matColumnDef="ch">
+      <th mat-header-cell *matHeaderCellDef>Ch</th>
+      <td mat-cell *matCellDef="let element" (click)="stopPropagation($event)">
+        <mat-checkbox class="myCheckbox" color="warm" [(ngModel)]="element.isSelected" (click)="stopPropagation($event)"></mat-checkbox>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef> Name </th>
+      <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="people">
+      <th mat-header-cell *matHeaderCellDef> People number </th>
+      <td mat-cell *matCellDef="let element"> {{element.contacts.length}} </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns" class="example-element-row"></tr>
+    <!-- <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr> -->
+    <tr mat-row (click)="clickedRow(row)" *matRowDef="let row; columns: displayedColumns;"
+        class="example-detail-row">
+    </tr>
+  </table>
+</div>

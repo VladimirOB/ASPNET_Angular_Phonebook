@@ -1,0 +1,39 @@
+.material-icons {
+  font-family: 'Material Icons' !important;
+}
+
+table {
+  width: 100%;
+}
+
+td {
+  padding: 10px;
+  border: 1px solid black;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+tr:nth-child(odd) {
+  background-color: #d6d5d5;
+}
+
+.example-element-row:first-child {
+  font-weight: 900;
+  background-color: #00AFA3;
+}
+
+.example-detail-row:hover {
+  background-color: lawngreen !important;
+  transition: all .4s;
+}
+
+tr:active {
+  background: brown;
+  transition: all .4s;
+}
+
+.myCheckbox {
+  transform: scale(1.3);
+}

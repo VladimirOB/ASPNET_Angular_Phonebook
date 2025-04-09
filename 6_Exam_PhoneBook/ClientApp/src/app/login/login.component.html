@@ -1,0 +1,27 @@
+<div class="loginOuter">
+  <div [hidden]="!showLoading" class="myLoading">
+    <mat-spinner color="warn"></mat-spinner>
+  </div>
+  
+  <div class="loginFormBox">
+    <h2>Phone Book</h2>
+    <mat-form-field class="example-full-width">
+      <mat-label>Login</mat-label>
+      <input [(ngModel)]="login" matInput #log maxlength="16" placeholder="Login" required>
+      <mat-hint>{{log.value.length}} / 16</mat-hint>
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <mat-label>Password</mat-label>
+      <input [(ngModel)]="password" #pass type="password" maxlength="30" matInput placeholder="Password" required>
+      <mat-hint>{{pass.value.length}} / 30</mat-hint>
+    </mat-form-field>
+    <section>
+      <div class="example-button-row">
+        <button (click)="loginClick();" mat-raised-button color="primary">Login</button>
+        <button (click)="regClick();" mat-raised-button color="warn">Registration</button>
+      </div>
+    </section>
+    <p>BVO™ All Rights Reserved.</p>
+  </div>
+</div>
+

@@ -1,0 +1,68 @@
+.loginOuter {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background-image: url(https://phonoteka.org/uploads/posts/2022-02/1643948936_19-phonoteka-org-p-prikolnii-zadnii-fon-19.jpg);
+  background-size: cover;
+}
+
+.loginFormBox{
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    align-content: space-around;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 40vw;
+    height:35vh;
+    border-radius: 10px;
+    border: 2px solid black;
+    background-color: aliceblue;
+}
+
+@media screen and (max-width: 768px){
+  .loginFormBox{
+      width: 80vw;
+  }
+}
+
+.example-full-width {
+  width: 80%;
+}
+
+section {
+  display: table;
+}
+
+.example-label {
+  display: table-cell;
+  font-size: 14px;
+  margin-left: 8px;
+  min-width: 120px;
+}
+
+.example-button-row {
+  display: table-cell;
+  max-width: 600px;
+}
+
+  .example-button-row .mat-mdc-button-base {
+    margin: 8px 8px 8px 0;
+  }
+
+.example-flex-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.example-button-container {
+  display: flex;
+  justify-content: center;
+  width: 120px;
+}
